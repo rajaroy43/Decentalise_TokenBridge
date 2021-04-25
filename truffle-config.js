@@ -17,7 +17,8 @@
  * phrase from a file you've .gitignored so it doesn't accidentally become public.
  *
  */
-
+const HDWalletProvider = require("@truffle/hdwallet-provider");
+const mnemonic = "jeans toast bone embody tortoise trophy often amazing split into robust fortune";
 // const HDWalletProvider = require('@truffle/hdwallet-provider');
 // const infuraKey = "fj4jll3k.....";
 //
@@ -47,6 +48,16 @@ module.exports = {
     //  port: 8545,            // Standard Ethereum port (default: none)
     //  network_id: "*",       // Any network (default: none)
     // },
+    ethTestnet: {
+      provider: () => new HDWalletProvider(mnemonic, "wss://kovan.infura.io/ws/v3/868861563be34f6f899d7c72865d236a"),
+      network_id: "42",
+      skipDryRun: true,
+    },
+    bscTestnet: {
+      provider: () => new HDWalletProvider(mnemonic, "https://data-seed-prebsc-1-s1.binance.org:8545"),
+      network_id: 97,
+      skipDryRun: true,
+    },
     // Another network with more advanced options...
     // advanced: {
     // port: 8777,             // Custom port
