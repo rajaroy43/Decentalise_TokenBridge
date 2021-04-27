@@ -18,7 +18,7 @@
  *
  */
 const HDWalletProvider = require("@truffle/hdwallet-provider");
-const mnemonic = "jeans toast bone embody tortoise trophy often amazing split into robust fortune";
+const mnemonic = "12 word mnemonic phrase";
 // const HDWalletProvider = require('@truffle/hdwallet-provider');
 // const infuraKey = "fj4jll3k.....";
 //
@@ -49,7 +49,7 @@ module.exports = {
     //  network_id: "*",       // Any network (default: none)
     // },
     ethTestnet: {
-      provider: () => new HDWalletProvider(mnemonic, "wss://kovan.infura.io/ws/v3/868861563be34f6f899d7c72865d236a"),
+      provider: () => new HDWalletProvider(mnemonic, "wss://kovan.infura.io/ws/v3/Inufra_id"),
       network_id: "42",
       skipDryRun: true,
     },
