@@ -20,7 +20,6 @@ module.exports = async function (deployer, network, addresses) {
   if (network == "bscTestnet") {
     await deployer.deploy(TokenBsc);
     const tokenBsc = await TokenBsc.deployed();
-    await tokenBsc.mint(addresses[0], amount);
     await deployer.deploy(BscBridge, tokenBsc.address);
     await tokenBsc.updateAdmin(BscBridge.address);
   }

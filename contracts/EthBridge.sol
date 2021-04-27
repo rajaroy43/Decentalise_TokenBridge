@@ -1,7 +1,7 @@
 //SPDX-License-Identifier:MIT
 pragma solidity ^0.8.0;
-import "./BridgeBase.sol";
+import "./DecentraliseBridgeBase.sol";
 
-contract EthBridge is BridgeBase {
-    constructor(address token) BridgeBase(token) {}
+contract EthBridge is DecentraliseBridgeBase {
+    constructor(address token) DecentraliseBridgeBase(token) {}
 }

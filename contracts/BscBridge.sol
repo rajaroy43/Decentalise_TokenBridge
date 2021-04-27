@@ -1,7 +1,7 @@
 //SPDX-License-Identifier:MIT
 pragma solidity ^0.8.0;
-import "./BridgeBase.sol";
+import "./DecentraliseBridgeBase.sol";
 
-contract BscBridge is BridgeBase {
-    constructor(address token) BridgeBase(token) {}
+contract BscBridge is DecentraliseBridgeBase {
+    constructor(address token) DecentraliseBridgeBase(token) {}
 }
