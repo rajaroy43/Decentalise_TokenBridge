@@ -7,7 +7,7 @@ contract DecentraliseBridgeBase is Ownable {
     address public admin;
     IToken public token;
     mapping(address => mapping(uint256 => bool)) public processedNonces;
-
+    mapping(address => uint256) public userNonce;
     enum Step {Mint, Burn}
 
     event Transfer(
@@ -28,15 +28,16 @@ contract DecentraliseBridgeBase is Ownable {
     function burn(
         address to,
         uint256 amount,
-        bytes calldata signature,
-        uint256 nonce
+        bytes calldata signature
     ) external {
+        uint256 nonce = userNonce[msg.sender] + 1;
         require(
             !processedNonces[msg.sender][nonce],
             "transfer already processed"
         );
-        processedNonces[msg.sender][nonce] = true;
         token.burn(msg.sender, amount);
+        userNonce[msg.sender] = nonce;
+        processedNonces[msg.sender][nonce] = true;
         emit Transfer(
             msg.sender,
             to,
